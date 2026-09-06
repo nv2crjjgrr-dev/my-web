@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DetroX — Emerging Culture</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #090909;
+  color: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(9,9,9,.96);
+  border-bottom: 1px solid #292929;
+  padding: 18px 20px;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.logo span {
+  color: #888;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+  overflow-x: auto;
+}
+
+nav button {
+  background: #171717;
+  color: white;
+  border: 1px solid #333;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background: white;
+  color: black;
+}
+
+.hero {
+  min-height: 55vh;
+  padding: 70px 20px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.95)),
+    radial-gradient(circle at 20% 20%, #333, #090909 65%);
+}
+
+.hero h1 {
+  font-size: clamp(55px, 15vw, 120px);
+  line-height: .85;
+  letter-spacing: -6px;
+}
+
+.hero p {
+  max-width: 600px;
+  margin-top: 25px;
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: #121212;
+  border: 1px solid #292929;
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #aaa;
+  margin: 6px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  margin: 8px 0 14px;
+  padding: 14px;
+  background: #080808;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: white;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+label {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.submit {
+  width: 100%;
+  padding: 15px;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit:hover {
+  opacity: .8;
+}
+
+.tag {
+  display: inline-block;
+  background: #222;
+  border: 1px solid #333;
+  padding: 6px 10px;
+  border-radius: 20px;
+  margin: 4px 3px 0 0;
+  color: #ccc;
+  font-size: 13px;
+}
+
+footer {
+  text-align: center;
+  padding: 50px 20px;
+  color: #666;
+  border-top: 1px solid #222;
+  margin-top: 50px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Detro<span>X</span></div>
+
+  <nav>
+    <button onclick="showSection('inicio')">Inicio</button>
+    <button onclick="showSection('artistas')">Artistas</button>
+    <button onclick="showSection('tiendas')">Tiendas</button>
+    <button onclick="showSection('artistaForm')">Crear perfil artista</button>
+    <button onclick="showSection('tiendaForm')">Crear tienda</button>
+  </nav>
+</header>
+
+<section id="inicio" class="active">
+  <div class="hero">
+    <div>
+      <h1>DETRO<br>X</h1>
+      <p>
+        Una plataforma para artistas y negocios emergentes.
+        Conecta, descubre y crea colaboraciones.
+        Desde las calles de NYC hacia cualquier lugar.
+      </p>
+    </div>
+  </div>
+</section>
+
+<main>
+
+<section id="artistas">
+  <h2>Artistas emergentes</h2>
+
+  <div id="artistList" class="grid">
+
+    <div class="card">
+      <h3>Jay Bronx</h3>
+      <p>📍 Bronx, NYC</p>
+      <span class="tag">Hip-Hop</span>
+      <span class="tag">Producer</span>
+      <p>Instagram: @jaybronx</p>
+      <p>🎵 Último proyecto: Street Vision</p>
+    </div>
+
+    <div class="card">
+      <h3>Maya Harlem</h3>
+      <p>📍 Harlem, NYC</p>
+      <span class="tag">R&B</span>
+      <span class="tag">Singer</span>
+      <p>Instagram: @mayaharlem</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="tiendas">
+  <h2>Tiendas & espacios</h2>
+
+  <div id="storeList" class="grid">
+
+    <div class="card">
+      <h3>North Block Studio</h3>
+      <p>📍 Queens, NYC</p>
+      <p>🕒 Lun–Sáb: 10:00–20:00</p>
+      <p>🎨 Murales · 🪑 Muebles · 🛍️ Productos</p>
+      <p>Instagram: @northblock</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="artistaForm">
+  <h2>Crear perfil de artista</h2>
+
+  <div class="card">
+
+    <label>Nombre artístico</label>
+    <input id="artistName" placeholder="Ej: DJ Harlem">
+
+    <label>Ciudad / zona</label>
+    <input id="artistLocation" placeholder="Ej: Harlem, NYC">
+
+    <label>Tipo de artista</label>
+    <input id="artistType" placeholder="Ej: Rapper, productor, pintor...">
+
+    <label>Red social</label>
+    <input id="artistSocial" placeholder="@usuario o enlace">
+
+    <label>Página web</label>
+    <input id="artistWebsite" placeholder="https://...">
+
+    <label>Música o proyecto (opcional)</label>
+    <input id="artistMusic" placeholder="Nombre de una canción o proyecto">
+
+    <label>Descripción del perfil</label>
+    <textarea id="artistBio" placeholder="Cuéntanos quién eres y qué haces..."></textarea>
+
+    <button class="submit" onclick="createArtist()">
+      PUBLICAR PERFIL
+    </button>
+
+  </div>
+</section>
+
+<section id="tiendaForm">
+  <h2>Crear perfil de tienda</h2>
+
+  <div class="card">
+
+    <label>Nombre de la tienda</label>
+    <input id="storeName" placeholder="Ej: DetroX Studio">
+
+    <label>Ubicación</label>
+    <input id="storeLocation" placeholder="Dirección / barrio / ciudad">
+
+    <label>Qué ofrece</label>
+    <input id="storeServices" placeholder="Murales, muebles, productos...">
+
+    <label>Horario</label>
+    <input id="storeHours" placeholder="Ej: Lun-Sáb 10:00-20:00">
+
+    <label>Red social (opcional)</label>
+    <input id="storeSocial" placeholder="@usuario o enlace">
+
+    <label>Página web real (opcional)</label>
+    <input id="storeWebsite" placeholder="https://...">
+
+    <label>Descripción</label>
+    <textarea id="storeBio" placeholder="Describe tu tienda o espacio..."></textarea>
+
+    <button class="submit" onclick="createStore()">
+      PUBLICAR TIENDA
+    </button>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  DETROX © 2026 — Emerging culture & collaboration
+</footer>
+
+<script>
+
+function showSection(id) {
+  document.querySelectorAll("section").forEach(section => {
+    section.classList.remove("active");
+  });
+
+  document.getElementById(id).classList.add("active");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function createArtist() {
+
+  const name = document.getElementById("artistName").value;
+  const location = document.getElementById("artistLocation").value;
+  const type = document.getElementById("artistType").value;
+  const social = document.getElementById("artistSocial").value;
+  const website = document.getElementById("artistWebsite").value;
+  const music = document.getElementById("artistMusic").value;
+  const bio = document.getElementById("artistBio").value;
+
+  if (!name || !location || !type) {
+    alert("Completa al menos el nombre, ubicación y tipo de artista.");
+    return;
+  }
+
+  const card = document.createElement("div");
+
+  card.className = "card";
+
+  card.innerHTML = `
+    <h3>${name}</h3>
+    <p>📍 ${location}</p>
+    <span class="tag">${type}</span>
+    ${social ? `<p>Red social: ${social}</p>` : ""}
+    ${website ? `<p>Web: ${website}</p>` : ""}
+    ${music ? `<p>🎵 Proyecto: ${music}</p>` : ""}
+    ${bio ? `<p>${bio}</p>` : ""}
+  `;
+
+  document.getElementById("artistList").appendChild(card);
+
+  alert("Perfil creado en esta sesión.");
+
+  showSection("artistas");
+}
+
+function createStore() {
+
+  const name = document.getElementById("storeName").value;
+  const location = document.getElementById("storeLocation").value;
+  const services = document.getElementById("storeServices").value;
+  const hours = document.getElementById("storeHours").value;
+  const social = document.getElementById("storeSocial").value;
+  const website = document.getElementById("storeWebsite").value;
+  const bio = document.getElementById("storeBio").value;
+
+  if (!name || !location || !services) {
+    alert("Completa al menos el nombre, ubicación y servicios.");
+    return;
+  }
+
+  const card = document.createElement("div");
+
+  card.className = "card";
+
+  card.innerHTML = `
+    <h3>${name}</h3>
+    <p>📍 ${location}</p>
+    <p>🎨 ${services}</p>
+    ${hours ? `<p>🕒 ${hours}</p>` : ""}
+    ${social ? `<p>Red social: ${social}</p>` : ""}
+    ${website ? `<p>Web: ${website}</p>` : ""}
+    ${bio ? `<p>${bio}</p>` : ""}
+  `;
+
+  document.getElementById("storeList").appendChild(card);
+
+  alert("Tienda creada en esta sesión.");
+
+  showSection("tiendas");
+}
+
+</script>
+
+</body>
+</html>
