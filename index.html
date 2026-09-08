@@ -426,4 +426,14 @@ function createStore() {
     SUPABASE_KEY
   );
 </script>
+<script>
+  supabaseClient.from("profiles").select("id").limit(1)
+    .then(({ data, error }) => {
+      if (error) {
+        console.error("Supabase:", error);
+      } else {
+        console.log("Supabase conectado correctamente");
+      }
+    });
+</script>
 </html>
