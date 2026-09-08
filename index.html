@@ -415,4 +415,15 @@ function createStore() {
 </script>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const SUPABASE_URL = "https://eelqqycplxllptvsurkr.supabase.co";
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVlbHFxeWNwbHhsbHB0dnN1cmtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg3OTQzNTUsImV4cCI6MjEwNDM3MDM1NX0.5d9wErBNNG1rqd4rts2UaUeydRx3YG_bYE2LJx4GeAE";
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+</script>
 </html>
