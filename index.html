@@ -426,27 +426,5 @@ function createStore() {
     SUPABASE_KEY
   );
 </script>
-<script>
-  supabaseClient.from("profiles").select("id").limit(1)
-  .then(({ data, error }) => {
-    const test = document.createElement("p");
-
-    if (error) {
-      test.textContent = "❌ Supabase: " + error.message;
-    } else {
-      test.textContent = "✅ Supabase conectado correctamente";
-    }
-
-    test.style.position = "fixed";
-    test.style.bottom = "10px";
-    test.style.left = "10px";
-    test.style.zIndex = "9999";
-    test.style.padding = "10px";
-    test.style.background = "white";
-    test.style.color = "black";
-    test.style.borderRadius = "8px";
-
-    document.body.appendChild(test);
-  });
 </script>
 </html>
