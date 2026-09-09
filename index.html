@@ -342,7 +342,7 @@ function showSection(id) {
 }
 
 function createArtist() {
-
+const username = document.getElementById("artistUsername").value.trim();
   const name = document.getElementById("artistName").value;
   const location = document.getElementById("artistLocation").value;
   const type = document.getElementById("artistType").value;
@@ -351,7 +351,7 @@ function createArtist() {
   const music = document.getElementById("artistMusic").value;
   const bio = document.getElementById("artistBio").value;
 
-  if (!name || !location || !type) {
+  if (!username || !name || !location || !type) {
     alert("Completa al menos el nombre, ubicación y tipo de artista.");
     return;
   }
