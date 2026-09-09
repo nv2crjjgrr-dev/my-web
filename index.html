@@ -425,6 +425,24 @@ function createStore() {
     SUPABASE_URL,
     SUPABASE_KEY
   );
+  async function registerUser() {
+  const email = prompt("Introduce tu email:");
+  const password = prompt("Crea una contraseña:");
+
+  if (!email || !password) return;
+
+  const { data, error } = await supabaseClient.auth.signUp({
+    email: email,
+    password: password
+  });
+
+  if (error) {
+    alert("Error: " + error.message);
+    return;
+  }
+
+  alert("Cuenta creada correctamente.");
+}
 </script>
 </script>
 </html>
