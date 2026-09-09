@@ -341,7 +341,7 @@ function showSection(id) {
   });
 }
 
-function createArtist() {
+async function createArtist() {
 const username = document.getElementById("artistUsername").value.trim();
   const name = document.getElementById("artistName").value;
   const location = document.getElementById("artistLocation").value;
@@ -391,7 +391,30 @@ function createStore() {
     alert("Completa al menos el nombre, ubicación y servicios.");
     return;
   }
+const { data: { user }, error: userError } = await supabaseClient.auth.getUser();
 
+if (userError || !user) {
+  alert("Necesitas iniciar sesión para publicar un perfil.");
+  return;
+}
+
+const { error } = await supabaseClient
+  .from("profiles")
+  .insert({
+    id: user.id,
+    username: username,
+    name: name,
+    bio: bio,
+    city: location,
+    discipline: type,
+    instagram: social,
+    website: website
+  });
+
+if (error) {
+  alert("No se pudo publicar el perfil: " + error.message);
+  return;
+}
   const card = document.createElement("div");
 
   card.className = "card";
